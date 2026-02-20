@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<details class="accordion border border-navy-200 rounded-lg mb-4 overflow-hidden">
+  <summary class="px-6 py-4 cursor-pointer font-semibold text-navy-900 bg-warm-50 hover:bg-warm-100 transition-colors flex items-center justify-between">
+    {title}
+  </summary>
+  <div class="px-6 py-4 text-navy-700 leading-relaxed">
+    <slot />
+  </div>
+</details>
+
+<style>
+  details summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #627d98;
+    transition: transform 0.2s;
+  }
+  details[open] summary::after {
+    content: '\2212';
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary {
+    list-style: none;
+  }
+</style>
