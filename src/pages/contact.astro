@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact — SV de Lekschutters"
+  description="Neem contact op met SV de Lekschutters. Stuur ons een bericht of kom langs op onze schietavond."
+>
+  <!-- Page header -->
+  <section class="bg-navy-900 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-4xl font-bold">Contact</h1>
+      <p class="text-xl text-navy-200 mt-2">Neem gerust contact met ons op</p>
+    </div>
+  </section>
+
+  <!-- Two-column layout -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- Left column: Contact form -->
+        <div>
+          <h2 class="text-2xl font-bold text-navy-900 mb-6">Stuur ons een bericht</h2>
+
+          <!-- Success message -->
+          <div id="form-success" class="bg-green-50 text-green-700 p-4 rounded-lg mb-4 hidden">
+            Bedankt voor uw bericht! Wij nemen zo snel mogelijk contact met u op.
+          </div>
+
+          <!-- Error message -->
+          <div id="form-error" class="bg-red-50 text-red-700 p-4 rounded-lg mb-4 hidden">
+            Er ging iets mis bij het versturen. Probeer het later opnieuw of mail ons direct.
+          </div>
+
+          <form id="contact-form">
+            <div class="mb-4">
+              <label for="name" class="text-sm font-medium text-navy-700 mb-1 block">Naam</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                placeholder="Uw naam"
+                class="w-full px-4 py-3 border border-navy-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="email" class="text-sm font-medium text-navy-700 mb-1 block">E-mail</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                placeholder="uw@email.nl"
+                class="w-full px-4 py-3 border border-navy-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="subject" class="text-sm font-medium text-navy-700 mb-1 block">Onderwerp</label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                placeholder="Onderwerp (optioneel)"
+                class="w-full px-4 py-3 border border-navy-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="message" class="text-sm font-medium text-navy-700 mb-1 block">Bericht</label>
+              <textarea
+                name="message"
+                id="message"
+                required
+                rows="5"
+                placeholder="Uw bericht..."
+                class="w-full px-4 py-3 border border-navy-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition w-full mt-2"
+            >
+              Verstuur bericht
+            </button>
+          </form>
+        </div>
+
+        <!-- Right column: Contact info + map -->
+        <div>
+          <h2 class="text-2xl font-bold text-navy-900 mb-6">Contactgegevens</h2>
+
+          <div class="space-y-6">
+            <!-- Adres -->
+            <div>
+              <div class="text-sm font-semibold text-red-500 uppercase tracking-wider">Adres</div>
+              <div class="text-navy-700 mt-1">
+                <p>Singel 5</p>
+                <p>2965BC Nieuwpoort</p>
+              </div>
+            </div>
+
+            <!-- E-mail -->
+            <div>
+              <div class="text-sm font-semibold text-red-500 uppercase tracking-wider">E-mail</div>
+              <div class="mt-1">
+                <a href="mailto:bestuur@delekschutters.nl" class="text-red-500 hover:text-red-600">bestuur@delekschutters.nl</a>
+              </div>
+            </div>
+
+            <!-- Openingstijden -->
+            <div>
+              <div class="text-sm font-semibold text-red-500 uppercase tracking-wider">Openingstijden</div>
+              <div class="mt-1">
+                <p class="text-navy-700">Maandag 19:30 – 22:30</p>
+                <p class="text-sm text-navy-500">En op aangekondigde evenementen en wedstrijddagen</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="mt-8">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=4.8535%2C51.8850%2C4.8635%2C51.8920&layer=mapnik&marker=51.8885%2C4.8585"
+              class="w-full h-64 rounded-lg border border-navy-200"
+              loading="lazy"
+              title="Locatie SV de Lekschutters"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const success = document.getElementById('form-success');
+  const error = document.getElementById('form-error');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    success?.classList.add('hidden');
+    error?.classList.add('hidden');
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        success?.classList.remove('hidden');
+        form.reset();
+      } else {
+        error?.classList.remove('hidden');
+      }
+    } catch (err) {
+      error?.classList.remove('hidden');
+    }
+  });
+</script>
