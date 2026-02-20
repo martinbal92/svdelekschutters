@@ -1,14 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import InfoBar from '../components/InfoBar.astro';
+import AboutTeaser from '../components/AboutTeaser.astro';
+import UpcomingEvents from '../components/UpcomingEvents.astro';
+import CtaBanner from '../components/CtaBanner.astro';
 ---
 
 <BaseLayout
   title="SV de Lekschutters — Schietvereniging in Nieuwpoort"
   description="SV de Lekschutters is een schietvereniging in Nieuwpoort, opgericht in 1966."
 >
-  <div class="mx-auto max-w-6xl px-4 py-16">
-    <h1 class="text-4xl font-bold text-navy-900">
-      Welkom bij SV de Lekschutters
-    </h1>
-  </div>
+  <Hero />
+  <InfoBar />
+  <AboutTeaser />
+  <UpcomingEvents />
+  <CtaBanner />
 </BaseLayout>
