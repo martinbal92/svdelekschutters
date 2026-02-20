@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Accordion from '../components/Accordion.astro';
 ---
 
 <BaseLayout
@@ -15,33 +14,36 @@ import Accordion from '../components/Accordion.astro';
     </div>
   </section>
 
-  <!-- Accordion sections -->
+  <!-- Content sections -->
   <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4">
+    <div class="max-w-4xl mx-auto px-4 space-y-16">
 
       <!-- Lid worden -->
-      <Accordion title="Lid worden">
-        <div class="space-y-4">
+      <div>
+        <h2 class="text-2xl font-bold text-navy-900 mb-4">Lid worden</h2>
+        <div class="text-navy-700 leading-relaxed space-y-4">
           <p>SV de Lekschutters is een besloten vereniging. U kunt alleen op introductie van een lid en onder begeleiding van dat lid, na voorafgaande afspraak met het Bestuur, eens komen kijken.</p>
-          <p>Als introduc&eacute; mag u 3 keer per 12 maanden de vereniging betreden. U kunt onder begeleiding kennismaken met de schietsport.</p>
+          <p>Als introducé mag u 3 keer per 12 maanden de vereniging betreden. U kunt onder begeleiding kennismaken met de schietsport.</p>
           <p>Wilt u lid worden? Dan dient u een Verklaring Omtrent Gedrag (VOG) aan te vragen bij uw gemeente. Vervolgens maakt u een afspraak met een bestuurslid voor het inschrijfformulier.</p>
           <p>Na goedkeuring door het Bestuur wordt u als aspirant-lid ingeschreven bij zowel de vereniging als de K.N.S.A. (Koninklijke Nederlandse Schutters Associatie).</p>
         </div>
-      </Accordion>
+      </div>
 
       <!-- De opleiding -->
-      <Accordion title="De opleiding">
-        <div class="space-y-4">
-          <p>Als aspirant-lid wordt u begeleid door een schietinstructeur. De opleiding vindt plaats met verenigingswapens van diverse categorie&euml;n: pistool, revolver, karabijn en geweer, allemaal in kaliber .22.</p>
-          <p>U wordt &eacute;&eacute;n op &eacute;&eacute;n begeleid totdat de instructeur oordeelt dat u voldoende kennis en veiligheidsbeheersing heeft. Daarna mag u zelfstandig .22 wapens ophalen bij de baancommandant.</p>
+      <div>
+        <h2 class="text-2xl font-bold text-navy-900 mb-4">De opleiding</h2>
+        <div class="text-navy-700 leading-relaxed space-y-4">
+          <p>Als aspirant-lid wordt u begeleid door een schietinstructeur. De opleiding vindt plaats met verenigingswapens van diverse categorieën: pistool, revolver, karabijn en geweer, allemaal in kaliber .22.</p>
+          <p>U wordt één op één begeleid totdat de instructeur oordeelt dat u voldoende kennis en veiligheidsbeheersing heeft. Daarna mag u zelfstandig .22 wapens ophalen bij de baancommandant.</p>
           <p>Na 6 maanden wordt beoordeeld of u de status van lid kunt krijgen. Hierbij wordt gekeken naar: veilig wapenbeheer, schietvaardigheid, voldoende schietbeurten, en of u past binnen de vereniging.</p>
           <p>Als lid krijgt u een vervolgopleiding in groot kaliber wapens.</p>
         </div>
-      </Accordion>
+      </div>
 
       <!-- Regels en veiligheid -->
-      <Accordion title="Regels en veiligheid">
-        <div class="space-y-4">
+      <div>
+        <h2 class="text-2xl font-bold text-navy-900 mb-4">Regels en veiligheid</h2>
+        <div class="text-navy-700 leading-relaxed space-y-4">
           <p>De schietsport is gebonden aan strenge wetten en regels. Onze vereniging volgt alle wettelijke regels en afwijkingen worden onder geen enkel beding geaccepteerd.</p>
           <p>Belangrijke regels:</p>
           <ul class="list-disc pl-6 space-y-1">
@@ -53,11 +55,12 @@ import Accordion from '../components/Accordion.astro';
           </ul>
           <p>Lidmaatschap van de K.N.S.A. is bij wet verplicht voor alle schietverenigingen.</p>
         </div>
-      </Accordion>
+      </div>
 
       <!-- Kosten -->
-      <Accordion title="Kosten">
-        <div class="space-y-4">
+      <div>
+        <h2 class="text-2xl font-bold text-navy-900 mb-4">Kosten</h2>
+        <div class="text-navy-700 leading-relaxed space-y-4">
           <p>Overzicht van de kosten (stand 2019):</p>
           <table class="w-full mt-4">
             <thead class="bg-navy-50">
@@ -91,12 +94,13 @@ import Accordion from '../components/Accordion.astro';
           </table>
           <p class="text-sm text-navy-600 mt-4 italic">Alle kosten dienen vooraf per jaar voldaan te worden.</p>
         </div>
-      </Accordion>
+      </div>
 
       <!-- Eigen wapen aanschaffen -->
-      <Accordion title="Eigen wapen aanschaffen">
-        <div class="space-y-4">
-          <p>Na minimaal &eacute;&eacute;n jaar lidmaatschap (aspirant-tijd telt niet mee) kunt u een eigen wapen aanschaffen. Voorwaarden:</p>
+      <div>
+        <h2 class="text-2xl font-bold text-navy-900 mb-4">Eigen wapen aanschaffen</h2>
+        <div class="text-navy-700 leading-relaxed space-y-4">
+          <p>Na minimaal één jaar lidmaatschap (aspirant-tijd telt niet mee) kunt u een eigen wapen aanschaffen. Voorwaarden:</p>
           <ol class="list-decimal pl-6 space-y-1">
             <li>Minimaal 18 schietbeurten in het voorafgaande jaar</li>
             <li>Toestemming van het verenigingsbestuur</li>
@@ -105,22 +109,26 @@ import Accordion from '../components/Accordion.astro';
           <p>Het aanschaffen verloopt via een WM3-formulier bij de politie. Na goedkeuring ontvangt u een Verlof Wet Wapens en Munitie (WM4).</p>
           <p>Let op: binnen het eerste jaar na aanschaf mag u geen tweede wapen aanschaffen. Wapenbezit is beperkt tot maximaal 5 wapens. Bij wapenbezit dient u minimaal 18 schietbeurten per jaar te kunnen aantonen.</p>
         </div>
-      </Accordion>
+      </div>
 
       <!-- Documenten -->
-      <Accordion title="Documenten">
-        <div class="space-y-4">
+      <div>
+        <h2 class="text-2xl font-bold text-navy-900 mb-4">Documenten</h2>
+        <div class="text-navy-700 leading-relaxed space-y-4">
           <p>Download de benodigde formulieren:</p>
-          <a href="#" class="flex items-center gap-2 text-red-500 hover:text-red-600 font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            WM32 formulier voor aanvraag en overschrijving
-          </a>
-          <a href="#" class="flex items-center gap-2 text-red-500 hover:text-red-600 font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            VOG formulier voor goed gedrag
-          </a>
+          <div class="space-y-3">
+            <a href="/documents/wm32-formulier.pdf" class="flex items-center gap-2 text-red-500 hover:text-red-600 font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              WM32 formulier voor aanvraag en overschrijving
+            </a>
+            <a href="/documents/vog-formulier.pdf" class="flex items-center gap-2 text-red-500 hover:text-red-600 font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              VOG formulier voor goed gedrag
+            </a>
+          </div>
+          <p class="text-sm text-navy-500 italic">Heeft u de formulieren niet digitaal? Neem dan contact op met het bestuur.</p>
         </div>
-      </Accordion>
+      </div>
 
     </div>
   </section>

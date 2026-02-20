@@ -13,6 +13,28 @@ export async function onRequestPost(context) {
       });
     }
 
+    // Verify Cloudflare Turnstile token
+    const turnstileToken = formData.get('cf-turnstile-response');
+    const turnstileSecret = context.env.TURNSTILE_SECRET_KEY || '1x0000000000000000000000000000000AA';
+
+    const turnstileResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret: turnstileSecret,
+        response: turnstileToken,
+        remoteip: context.request.headers.get('CF-Connecting-IP'),
+      }),
+    });
+
+    const turnstileResult = await turnstileResponse.json();
+    if (!turnstileResult.success) {
+      return new Response(JSON.stringify({ error: 'Captcha verificatie mislukt. Probeer het opnieuw.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     await fetch('https://api.mailchannels.net/tx/v1/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

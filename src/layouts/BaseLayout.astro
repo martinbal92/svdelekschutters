@@ -36,6 +36,9 @@ const { title, description } = Astro.props;
       rel="stylesheet"
     />
 
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
     <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col">

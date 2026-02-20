@@ -81,6 +81,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               ></textarea>
             </div>
 
+            <!-- Cloudflare Turnstile -->
+            <div class="mb-4">
+              <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light" data-language="nl"></div>
+            </div>
+
             <button
               type="submit"
               class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition w-full mt-2"
@@ -125,7 +130,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <!-- Map -->
           <div class="mt-8">
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=4.8535%2C51.8850%2C4.8635%2C51.8920&layer=mapnik&marker=51.8885%2C4.8585"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=4.8600%2C51.9290%2C4.8730%2C51.9357&layer=mapnik&marker=51.9323464%2C4.8664772"
               class="w-full h-64 rounded-lg border border-navy-200"
               loading="lazy"
               title="Locatie SV de Lekschutters"
